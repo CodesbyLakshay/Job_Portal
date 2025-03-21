@@ -1,7 +1,10 @@
 package com.JobPortal.Job_Portal.service;
 
+import com.JobPortal.Job_Portal.model.Review;
 import com.JobPortal.Job_Portal.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ReviewService {
@@ -9,5 +12,9 @@ public class ReviewService {
 
     public ReviewService(ReviewRepository reviewRepository) {
         this.reviewRepository = reviewRepository;
+    }
+
+    public List<Review> getAllReviews(Long companyId) {
+        return reviewRepository.findByCompanyId(companyId);
     }
 }
