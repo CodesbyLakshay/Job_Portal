@@ -1,9 +1,7 @@
 package com.JobPortal.Job_Portal.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,4 +16,8 @@ public class Review {
     private String title;
     private String description;
     private double rating;
+
+    @JsonIgnore
+    @ManyToOne
+    private Company company;
 }
