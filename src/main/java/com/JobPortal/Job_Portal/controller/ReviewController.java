@@ -31,8 +31,8 @@ public class ReviewController {
     }
 
     @PutMapping("/reviews/{reviewId}")
-    public Review updateReview(@PathVariable Long companyId,@PathVariable Long reviewId, @RequestBody Review reviewbody){
-        return reviewService.updateReview(companyId,reviewId,reviewbody);
+    public Review updateReview(@PathVariable Long companyId,@PathVariable Long reviewId, @RequestBody Review newreviewbody){
+        return reviewService.updateReview(companyId,reviewId,newreviewbody);
     }
 
     @DeleteMapping("/reviews/{reviewId}")

@@ -33,14 +33,13 @@ public class ReviewService {
         return reviewRepository.findByIdAndCompanyId(reviewId, companyId);
     }
 
-    public Review updateReview(Long companyId, Long reviewId, Review reviewbody) {
+    public Review updateReview(Long companyId, Long reviewId, Review newreviewbody) {
         Review review = reviewRepository.findByIdAndCompanyId(reviewId,companyId);
-        review.setTitle(reviewbody.getTitle());
-        review.setDescription(reviewbody.getDescription());
-        review.setRating(reviewbody.getRating());
+        review.setTitle(newreviewbody.getTitle());
+        review.setDescription(newreviewbody.getDescription());
+        review.setRating(newreviewbody.getRating());
         return reviewRepository.save(review);
     }
-
 
     public void deleteReview(Long companyId, Long reviewId) {
         Review review = reviewRepository.findByIdAndCompanyId(reviewId,companyId);
