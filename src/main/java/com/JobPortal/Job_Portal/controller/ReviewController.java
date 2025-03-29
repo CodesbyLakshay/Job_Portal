@@ -1,5 +1,6 @@
 package com.JobPortal.Job_Portal.controller;
 
+import com.JobPortal.Job_Portal.model.Company;
 import com.JobPortal.Job_Portal.model.Review;
 import com.JobPortal.Job_Portal.service.ReviewService;
 import org.springframework.web.bind.annotation.*;
@@ -38,5 +39,9 @@ public class ReviewController {
     @DeleteMapping("/reviews/{reviewId}")
     public void deleteReview(@PathVariable Long companyId,@PathVariable Long reviewId){
         reviewService.deleteReview(companyId,reviewId);
+    }
+    @GetMapping("/reviews/{rating}")
+    public List<Company> getCompanyByRating(@PathVariable Long companyId , @PathVariable double rating ){
+        return reviewService.getCompanyByRating(companyId,rating);
     }
 }
