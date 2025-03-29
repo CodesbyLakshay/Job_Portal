@@ -45,4 +45,10 @@ public class ReviewService {
         Review review = reviewRepository.findByIdAndCompanyId(reviewId,companyId);
         reviewRepository.delete(review);
     }
+
+    public List<Company> getCompanyByRating(Long companyId, double rating) {
+        List<Company> companyList = companyService.getAllCompanies();
+        companyList.remove(rating<3);
+        return companyList;
+    }
 }
